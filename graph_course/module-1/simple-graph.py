@@ -7,12 +7,15 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 # State
 class State(TypedDict):
     """
     Represents the state of the graph
     """
+
     graph_state: str
+
 
 # Nodes
 def node_1(state: State) -> dict:
@@ -22,12 +25,14 @@ def node_1(state: State) -> dict:
     print("--Node 1---")
     return {"graph_state": state.get("graph_state", "") + "I am"}
 
+
 def node_2(state: State) -> dict:
     """
     Node 2
     """
     print("--Node 2---")
     return {"graph_state": state.get("graph_state", "") + " happy!"}
+
 
 def node_3(state: State) -> dict:
     """
@@ -36,6 +41,7 @@ def node_3(state: State) -> dict:
     print("--Node 3---")
     return {"graph_state": state.get("graph_state", "") + " sad!"}
 
+
 # Edges
 def decide_mood(state: State) -> Literal["node_2", "node_3"]:
     """
@@ -43,6 +49,7 @@ def decide_mood(state: State) -> Literal["node_2", "node_3"]:
     """
     print("--Decide Mood---")
     return random.choice(["node_2", "node_3"])
+
 
 # Graph Construction
 
